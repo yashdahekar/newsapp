@@ -43,15 +43,11 @@ export class News extends Component {
             <div className='container my-3'>
                 <h2>NewsBuddy - Top Headlines</h2>
                 <div className="row">
-                    <div className="col-md-4">
-                        <NewsItem title='my title' description='my descrip' imgUrl='https://sportshub.cbsistatic.com/i/r/2022/12/20/519a5eae-4324-442c-a170-e320b3358e4e/thumbnail/1200x675/385a1ffc3250b5d66924bc4a4e6f68dc/matayo.jpg' newsUrl="Todo"/>
+                {this.state.articles.map((element)=>{
+                    return <div className="col-md-4" key={element.url}>
+                        <NewsItem  title={element.title.slice(0, 45)} description={element.description.slice(0, 88)} imgUrl={element.urlToImage} newsUrl={element.url}/>
                     </div>
-                    <div className="col-md-4">
-                        <NewsItem title='my title' description='my descrip' />
-                    </div>
-                    <div className="col-md-4">
-                        <NewsItem title='my title' description='my descrip' />
-                    </div>
+                })}
                 </div>
             </div>
         )
