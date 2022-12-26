@@ -26,8 +26,7 @@ export default class App extends Component {
         <LoadingBar
         height={2}
         color='#f11946'
-        progress={this.state.progress}
-      />
+        progress={this.state.progress}/>
         <Routes>
           <Route exact path="/"element={<News setProgress={this.setProgress} key="general" pageSize={this.pageSize} country="in" category="general"/>}></Route> 
           <Route exact path="/business"element={<News setProgress={this.setProgress} key="business" pageSize={this.pageSize} country="in" category="business"/>}></Route> 
