@@ -14,7 +14,6 @@ export default function News(props) {
     const capitalizeFirstLetter = (string) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
-    // document.title=`${capitalizeFirstLetter(props.category)} - NewsBuddy`;
 
     const updateNews = async () => {
         props.setProgress(10);
@@ -30,6 +29,7 @@ export default function News(props) {
         props.setProgress(100);
     }
     useEffect(() => {
+            document.title=`${capitalizeFirstLetter(props.category)} - NewsBuddy`;
         updateNews();
         // eslint-disable-next-line
     },[])
