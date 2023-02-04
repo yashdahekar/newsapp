@@ -32,7 +32,7 @@ export default function News(props) {
     useEffect(() => {
         updateNews();
         // eslint-disable-next-line
-    },[])
+    }, [])
 
 
     // handlePrevClick = async () => {
@@ -46,7 +46,7 @@ export default function News(props) {
     // }
 
     const fetchMoreData = async () => {
-        setPage(page+1)
+        setPage(page + 1)
         const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=bfaec1d08c8f4739baf266022cf39cbf&page=${page}&pageSize=${props.pageSize}`;
         let data = await fetch(url);
         let parsedData = await data.json()
@@ -54,10 +54,9 @@ export default function News(props) {
         setTotalResults(parsedData.totalResults)
     };
 
-
     return (
         <>
-            <h1 className="text-center" style={{ margin: '35px 0px', marginTop:"90px" }}>NewsMonkey - Top {capitalizeFirstLetter(props.category)} Headlines</h1>
+            <h1 className="text-center" style={{ margin: '35px 0px', marginTop: "90px" }}>NewsMonkey - Top {capitalizeFirstLetter(props.category)} Headlines</h1>
             {loading && <Spinner />}
             <InfiniteScroll
                 dataLength={articles.length}
@@ -66,7 +65,6 @@ export default function News(props) {
                 loader={<Spinner />}
             >
                 <div className="container">
-
                     <div className="row">
                         {articles.map((element) => {
                             return <div className="col-md-4" key={element.url}>
@@ -76,10 +74,8 @@ export default function News(props) {
                     </div>
                 </div>
             </InfiniteScroll>
-
         </>
     )
-
 }
 
 News.defaultProps = {
