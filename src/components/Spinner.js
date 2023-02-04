@@ -1,10 +1,10 @@
-import React from 'react'
-import loading from './loading.gif'
+import React from 'react';
+import loading from './loading.gif';
 
 export default function Spinner() {
-    return (
-      <div className='text-center'>
-        <img className="my-3" src={loading} alt="loading"/>
-      </div>
-    )
+  return (
+    <div className="text-center">
+      <img src={loading} alt="Loading..." className="my-3" />
+    </div>
+  );
 }
